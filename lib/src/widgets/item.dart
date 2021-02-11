@@ -28,6 +28,10 @@ class Item extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           SizedBox(width: 12.0),
+          Icon(
+            Icons.expand_more,
+            color: textStyle.color,
+          ),
           _Flag(
             country: country,
             showFlag: showFlag,
@@ -35,9 +39,14 @@ class Item extends StatelessWidget {
           ),
           SizedBox(width: 12.0),
           Text(
-            '${(country?.dialCode ?? '').padRight(5, "   ")}',
+            '${(country?.dialCode ?? '').padRight(6, "   ")}',
             textDirection: TextDirection.ltr,
             style: textStyle,
+          ),
+          Container(
+            width: 2,
+            height: 28,
+            color: Colors.grey,
           ),
         ],
       ),
@@ -73,3 +82,4 @@ class _Flag extends StatelessWidget {
         : SizedBox.shrink();
   }
 }
+
