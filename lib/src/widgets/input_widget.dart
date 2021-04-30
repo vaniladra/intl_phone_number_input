@@ -319,7 +319,13 @@ class _InputWidgetState extends State<InternationalPhoneNumberInput> {
       }
     });
 
-    return isValid ? widget.errorMessage : null;
+    return isValid
+        ? widget.errorMessage
+        :
+        //!###############################################
+        widget.validator(value);
+    //!###############################################
+    // null;
   }
 
   /// Changes Selector Button Country and Validate Change.
@@ -424,7 +430,9 @@ class _InputWidgetView
               onFieldSubmitted: widget.onFieldSubmitted,
               autovalidateMode: widget.autoValidateMode,
               autofillHints: widget.autofillHints,
-              validator: widget.validator ?? state.validator,
+              //!###############################################
+              validator: state.validator,
+              //!###############################################
               onSaved: state.onSaved,
               scrollPadding: widget.scrollPadding,
               inputFormatters: [
